@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Cache" content="no-cache">
+
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+
+
+<link rel="stylesheet" href="../../public/css/sm.css?rev=615cecaed745b1de8d3811d30eb36e09">
+<link rel="stylesheet" href="../../public/css/swiper.css?rev=3a731d5a64a9cf9052fcdf4bd5af621e">
+<link rel="stylesheet" href="../../public/css/sm-extend.css?rev=86932e2e2d0f11d5671c03316a935d54">
+<link rel="stylesheet" href="../../public/css/main.css?rev=788c1c5a4706041c0b5f9d592d1c03d6">
+
+
+<script src="../../public/js/lib/require.js?rev=e1484b205fdeccebe61a787fb342cba4"></script>
+
+</head>
+
+<body>
+<div class="page-group">
+	<div class="page page-current">
+	<!-- 你的html代码 -->
+		<header class="bar bar-nav">
+		  <h1 class="title">视图列表</h1>
+		</header>
+		<div class="content">
+		  <div class="content-block-title">图标、标题和副标题</div>
+		  <div class="list-block" id="plansList">
+			<script id="plansListJuicer" type="text/juicer">
+				<ul class="common-select payStyle">
+					{@each product_clause as item, index}
+						<li class="item-content">
+							<div class="item-media"><i class="icon icon-f7"></i></div>
+							<div class="item-inner">
+							  <div class="item-title">${item.clauseName}</div>
+							  <div class="item-after">杜蕾斯</div>
+							</div>
+						</li>
+					{@/each}
+				</ul>
+			</script>
+		  </div>
+		   <script id="tpl" type="text/juicer">
+            <ul>
+                {@each product_clause as it,index}
+                    <li>${it.clauseName} (index: ${index})</li>
+                {@/each}
+            </ul>
+        </script>
+        <div id="container">
+
+        </div>
+		</div>
+	</div>
+</div>
+        
+<script>
+				var PageScope = null; 
+				var src = "../../public/js/";
+				
+				require(['../../public/js/common.js?vv=20181206213350'], function(main) {
+					require(['../../modules/insure/init.js'], function(module) {
+						PageScope = module;
+						console.log(module);
+						PageScope.init();
+
+                        var path = 'app/safeguard/insure/detail';
+                        if(!(path == 'app/safeguard/insure/detail' || path == 'app/payment/safeguardPayment' || path == 'app/safeguard/insure/result')){
+                            var _oztime = (new Date()).getTime();
+                            var _ozuid = "时间戳";
+                            require(['o-code']);
+                        }
+					});
+
+				});
+			</script>
+			
+<!--<script type="text/javascript" src="/h5/public/js/lib/o-code.js?v=201806070203001"></script>-->
+
+    </div>
+</div>
+</body>
+</html>
